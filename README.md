@@ -119,6 +119,11 @@ To run tests, run the following command:
 - LinkedIn: [Zuwaira Sadiq](https://www.linkedin.com/in/zuwaira-sadiq-566b891b0?)
 
 👤 **Author2**
+*[Ricardo Egas]*
+
+- GitHub: [@githubhandle](https://github.com/RicardoEgas)
+- Twitter: [@twitterhandle](https://twitter.com/RjEgas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
 
 👤 **Author3**
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
