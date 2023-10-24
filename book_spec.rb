@@ -1,4 +1,4 @@
-require_relative './book'
+require_relative './book' # frozen_string_literal: true
 
 describe Book do
   let(:published_date) { '2022-01-01' }
@@ -8,7 +8,6 @@ describe Book do
   let(:genre) { 'Fiction' }
   let(:publisher) { 'Sample Publisher' }
 
-
   subject(:book) { described_class.new(published_date, title, author, cover_state, publisher, genre) }
 
   describe '#to_hash' do
@@ -17,7 +16,7 @@ describe Book do
         published_date: published_date,
         title: title,
         author: author,
-        cover_state: cover_state, 
+        cover_state: cover_state,
         publisher: publisher
       }
 
@@ -49,9 +48,8 @@ describe Book do
     end
   end
   describe '#publisher' do
-        it 'returns the publisher of the book' do
-          expect(book.publisher).to eq(publisher)
-        end
-      end
+    it 'returns the publisher of the book' do
+      expect(book.publisher).to eq(publisher)
+    end
+  end
 end
-

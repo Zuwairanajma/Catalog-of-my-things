@@ -1,12 +1,12 @@
-require_relative 'book'
-require_relative 'label'
+require_relative 'book' # frozen_string_literal: true
+require_relative 'label' # frozen_string_literal: true
 require 'json'
 
-class App 
-    attr_accessor :books, :music_album,
-    :games, :label, :file_name
+class App
+  attr_accessor :books, :music_album,
+                :games, :label, :file_name
 
-def initialize 
+  def initialize
     @books = []
     @music_album = []
     @games = []
@@ -35,7 +35,7 @@ def initialize
 
   def add_label
     puts 'Enter label name'
-    label_name =gets.chomp
+    label_name = gets.chomp
     @labels << Label.new(label_name).to_hash
     hashed = @labels.map(&:to_hash)
     json = JSON.generate(hashed)
@@ -47,16 +47,19 @@ def initialize
     @books = JSON.parse(File.read('book.json'))
     puts 'No books' if @books.empty?
     @books.each do |book|
-        puts "published date: #{book['published_date']}, title: #{book['title']}, author: #{book['author']}, cover state: #{book['cover_state']}"
+      puts "published date: #{book['published_date']},
+      title: #{book['title']},
+       author: #{book['author']},
+       cover state: #{book['cover_state']}"
     end
-end
-
-def display_labels 
-  @labels = JSON.parse(File.read('label.json'))
-  puts 'No label' if @labels.empty?
-  @labels.each do |label|
-    puts "label name: #{label['title']}"
   end
-  puts 'label displayed'
-end
+
+  def display_labels
+    @labels = JSON.parse(File.read('label.json'))
+    puts 'No label' if @labels.empty?
+    @labels.each do |label|
+      puts "label name: #{label['title']}"
+    end
+    puts 'label displayed'
+  end
 end

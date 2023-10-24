@@ -1,5 +1,5 @@
-require_relative 'app'
-require_relative 'item'
+require_relative 'app' # frozen_string_literal: true
+require_relative 'item' # frozen_string_literal: true
 
 class Main
   OPTIONS = {

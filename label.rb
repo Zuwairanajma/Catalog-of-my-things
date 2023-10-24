@@ -1,4 +1,4 @@
-class Label
+class Label # frozen_string_literal: true
   attr_reader :title, :items
 
   def initialize(title)
