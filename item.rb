@@ -1,4 +1,4 @@
-require 'date' # frozen_string_literal: true
+require 'date'
 
 class Item
   attr_reader :published_date, :genre, :label, :author
@@ -6,7 +6,6 @@ class Item
   def initialize(published_date, genre)
     @id = rand(1..1000)
     @genre = genre
-    # @published_date = Date.parse(published_date)
     @published_date = published_date
     @archived = false
   end
@@ -16,7 +15,6 @@ class Item
   end
 
   def can_be_archived?
-    return true if
     years_since_published_date >= 10
   end
 

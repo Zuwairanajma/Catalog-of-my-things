@@ -1,7 +1,10 @@
-require_relative 'app' # frozen_string_literal: true
-require_relative 'item' # frozen_string_literal: true
+require_relative 'app'
+require_relative 'item'
+require_relative 'get_inputs'
 
 class Main
+  include HelperMethods
+
   OPTIONS = {
     1 => :display_books,
     2 => :display_music_album,
@@ -51,6 +54,8 @@ end
 
 # execute_main
 class Library
+  include HelperMethods
+
   def initialize
     @app = App.new
     @menu = Main.new(@app)

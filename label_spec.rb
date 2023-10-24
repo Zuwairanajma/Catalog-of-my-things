@@ -1,4 +1,4 @@
-require_relative './label' # frozen_string_literal: true
+require_relative 'label'
 
 describe Label do
   let(:title) { 'Sample Label' }
