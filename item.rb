@@ -26,7 +26,7 @@ class Item
     @label = label
     label.add_item(self)
   end
-
+  
   def genre=(genre)
     @genre = genre
     genre.add_item(self) unless genre.items.include?(self)
