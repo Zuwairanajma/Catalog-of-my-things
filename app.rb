@@ -1,70 +1,25 @@
 require_relative 'book'
 require_relative 'label'
 require_relative 'get_inputs'
+require_relative 'genre'
+require_relative 'music_album'
 require 'json'
 
 class App
   include HelperMethods
 
-  attr_accessor :books, :music_album,
+  attr_accessor :books, :music_albums,
                 :games, :label, :file_name
 
   def initialize
     @books = []
-    @music_album = []
+    @music_albums = load_from_json('music_album.json') || []
     @games = []
     @labels = []
-    @genres = []
+    @genres = extract_genres_from_music_albums || []
     @game_author = []
   end
 
-  # def add_book
-  #   puts 'Enter published date'
-  #   published_date = gets.chomp
-  #   puts 'Enter title'
-  #   title = gets.chomp
-  #   puts 'Enter author'
-  #   author = gets.chomp
-  #   puts 'Enter cover state'
-  #   cover_state = gets.chomp
-  #   puts 'Enter publisher'
-  #   publisher = gets.chomp
-  #   @books << Book.new(published_date, title, author, cover_state, publisher).to_hash
-  #   hashed = @books.map(&:to_hash)
-  #   json = JSON.generate(hashed)
-  #   File.write('book.json', json)
-  #   puts 'book added'
-  # end
-
-  # def add_label
-  #   puts 'Enter label name'
-  #   label_name = gets.chomp
-  #   @labels << Label.new(label_name).to_hash
-  #   hashed = @labels.map(&:to_hash)
-  #   json = JSON.generate(hashed)
-  #   File.write('label.json', json)
-  #   puts 'label added'
-  # end
-
-  # def display_books
-  #   @books = JSON.parse(File.read('book.json'))
-  #   puts 'No books' if @books.empty?
-  #   @books.each do |book|
-  #     puts "published date: #{book['published_date']},
-  #     title: #{book['title']},
-  #      author: #{book['author']},
-  #      cover state: #{book['cover_state']}"
-  #   end
-  # end
-
-  # def display_labels
-  #   @labels = JSON.parse(File.read('label.json'))
-  #   puts 'No label' if @labels.empty?
-  #   @labels.each do |label|
-  #     puts "label name: #{label['title']}"
-  #   end
-  #   puts 'label displayed'
-  # end
   def add_book
     published_date = get_user_input('Enter published date')
     title = get_user_input('Enter title')
@@ -93,5 +48,40 @@ class App
 
   def display_labels
     display_collection('label.json', 'No labels', ['title'])
+  end
+
+  def add_music_album
+    title = get_user_input('Enter music album title')
+    published_date = get_user_input('Enter published date')
+    genre_name = get_user_input('Enter genre')
+    on_spotify = get_user_input('Is it on Spotify? (true or false)')
+    genre = find_or_create_genre(genre_name)
+    existing_music_albums = load_from_json('music_album.json')
+    music_album = MusicAlbum.new(published_date, genre, title: title, on_spotify: on_spotify)
+    existing_music_albums << music_album.to_hash
+    save_to_json('music_album.json', existing_music_albums)
+    puts 'Music album added'
+  end
+
+  def display_genres
+    puts 'Genres:'
+    @genres.each do |genre|
+      puts "ID: #{genre.id}, Name: #{genre.name}"
+    end
+  end
+
+  private
+
+  def find_or_create_genre(name)
+    existing_genre = @genres.find { |genre| genre.name == name }
+    return existing_genre if existing_genre
+
+    new_genre = Genre.new(@genres.size + 1, name)
+    @genres << new_genre
+    new_genre
+  end
+
+  def display_music_album
+    display_collection('music_album.json', 'No music albums', %w[published_date genre title on_spotify])
   end
 end

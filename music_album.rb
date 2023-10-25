@@ -13,6 +13,17 @@ class MusicAlbum < Item
     @on_spotify
   end
 
+  def to_hash
+    {
+      id: @id,
+      genre: @genre.name,
+      published_date: @published_date,
+      archived: @archived,
+      title: @title,
+      on_spotify: @on_spotify
+    }
+  end
+
   private
 
   def can_be_archived?
