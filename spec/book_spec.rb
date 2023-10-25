@@ -1,4 +1,4 @@
-require_relative 'book'
+require_relative '../book'
 
 describe Book do
   let(:published_date) { '2022-01-01' }
