@@ -4,6 +4,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+
     
   DisplayCopNames: true
 
@@ -22,8 +23,6 @@ Metrics/CyclomaticComplexity:
   Max: 20
 Metrics/PerceivedComplexity:
   Max: 12
-
-
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -36,7 +35,6 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
-
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/EndOfLine:
