@@ -21,7 +21,6 @@ class App
   end
 
   def add_book
-
     @books = load_from_json('book.json') || []
     published_date = get_user_input('Enter published date')
     title = get_user_input('Enter title')
@@ -38,7 +37,7 @@ class App
 
   def add_label
     @labels = load_from_json('label.json') || []
-    
+
     label_name = get_user_input('Enter label name')
     @labels << Label.new(label_name).to_hash
 
