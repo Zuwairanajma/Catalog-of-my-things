@@ -1,4 +1,4 @@
-require_relative 'label'
+require_relative '../label'
 
 describe Label do
   let(:title) { 'Sample Label' }
