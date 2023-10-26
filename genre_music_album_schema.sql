@@ -1,14 +1,11 @@
-CREATE TABLE MusicAlbum (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  item_id INTEGER,
-  on_spotify BOOLEAN,
-  publish_date DATE,
-  FOREIGN KEY(item_id) REFERENCES Items(id)
+CREATE TABLE music_albums (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    on_spotify BOOLEAN NOT NULL,
+    FOREIGN KEY (id) REFERENCES items(id)
 );
 
-CREATE TABLE Genre (
-  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(150),
-  item_id INTEGER,
-  FOREIGN KEY(item_id) REFERENCES Items(id)
+CREATE TABLE genres (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
 );
