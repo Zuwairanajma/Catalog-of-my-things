@@ -11,7 +11,7 @@ module HelperMethods
   end
 
   def display_collection(file_name, empty_message, attributes)
-    input_collection = JSON.parse(File.read(file_name))
+    input_collection = load_from_json(file_name)
     puts empty_message if input_collection.empty?
 
     input_collection.each do |item|
@@ -20,7 +20,7 @@ module HelperMethods
   end
 
   def load_from_json(file_name)
-    return [] unless File.exist?(file_name)
+    return [] unless File.exist?(file_name) && !File.empty?(file_name)
 
     json_data = File.read(file_name)
     JSON.parse(json_data)
