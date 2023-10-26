@@ -18,4 +18,14 @@ module HelperMethods
       puts attributes.map { |attr| "#{attr}: #{item[attr]}" }.join(', ')
     end
   end
+
+  def load_from_json(file_name)
+    json_data = File.read(file_name)
+    JSON.parse(json_data)
+  end
+
+  def extract_genres_from_music_albums
+    genre_strings = @music_albums.map { |album| album['genre'] }.uniq.compact
+    genre_strings.map.with_index { |genre, index| Genre.new(index + 1, genre) }
+  end
 end
