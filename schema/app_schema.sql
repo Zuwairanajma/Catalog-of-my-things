@@ -60,7 +60,3 @@ CREATE TABLE music_albums (
     FOREIGN KEY (item_id) REFERENCES items(id),
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
-
-
-CREATE INDEX genres ON music_albums (genre_id);
-CREATE INDEX label_idx ON books (label_id);
