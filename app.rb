@@ -65,7 +65,7 @@ class App
   #   end
   #   puts 'label displayed'
   # end
-    
+
   # add game
 
   def add_game
@@ -82,9 +82,7 @@ class App
     puts 'game added'
   end
 
-
-
-     # display game
+  # display game
 
   def add_game_author
     puts 'First name'
@@ -96,9 +94,9 @@ class App
     puts 'game author added'
   end
 
-   # display game
+  # display game
 
-   def display_games
+  def display_games
     @games = JSON.parse(File.read('game.json'))
     puts 'No games' if @games.empty?
     @games.each do |game|
@@ -106,7 +104,6 @@ class App
     end
     puts 'games displayed'
   end
-
 
   # display game authors
 
@@ -149,12 +146,12 @@ class App
     display_collection('label.json', 'No labels', ['title'])
   end
 
-      # ...
+  # ...
 
-      private
+  private
 
-      def save_to_json(file_name, collection)
-        json = JSON.pretty_generate(collection)
-        File.write(file_name, json)
-      end
+  def save_to_json(file_name, collection)
+    json = JSON.pretty_generate(collection)
+    File.write(file_name, json)
+  end
 end
