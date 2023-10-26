@@ -126,6 +126,11 @@ To run tests, run the following command:
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
 
 👤 **Author3**
+*[Pushkar Gautam]*
+
+- GitHub: [@pushkar1995](https://github.com/pushkar1995)
+- Twitter: [@Pushkar9951](https://twitter.com/Pushkar9951)
+- LinkedIn: [pushkargautam](https://www.linkedin.com/in/pushkar-gautam-94a385271/)
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
