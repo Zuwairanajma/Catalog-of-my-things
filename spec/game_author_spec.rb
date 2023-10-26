@@ -1,4 +1,4 @@
-require_relative 'game_author'
+require_relative '../game_author'
 
 describe GameAuthor do
   let(:firstname) { 'John' }

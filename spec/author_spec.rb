@@ -1,6 +1,6 @@
 require 'date'
-require_relative 'author'
-require_relative 'game'
+require_relative '../author'
+require_relative '../game'
 
 describe Author do
   let(:firstname) { 'John' }

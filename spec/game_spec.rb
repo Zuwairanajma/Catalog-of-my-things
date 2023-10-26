@@ -1,5 +1,5 @@
-require_relative 'item'
-require_relative 'game'
+require_relative '../item'
+require_relative '../game'
 require 'date'
 
 RSpec.describe Game do
