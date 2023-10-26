@@ -1,3 +1,5 @@
+CREATE DATABASE catalog;
+
 CREATE TABLE items (
     id INT PRIMARY KEY,
     published_date DATE,
@@ -10,26 +12,33 @@ CREATE TABLE authors (
     lastname VARCHAR(255)
 );
 
-CREATE TABLE books (
-    id SERIAL PRIMARY KEY,
-    item_id INT,
-    title VARCHAR(255),
-    author_id INT,
-    cover_state VARCHAR(255),
-    publisher VARCHAR(255),
-    FOREIGN KEY (item_id) REFERENCES items(id),
-    FOREIGN KEY (author_id) REFERENCES authors(id)
-);
-
 CREATE TABLE genres (
     id INT PRIMARY KEY,
     name VARCHAR(255)
 );
 
-CREATE TABLE labels (
-    title VARCHAR(255) PRIMARY KEY
+CREATE TABLE labels ( 
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  color VARCHAR(255),
+  published_date DATE,
+  item_id INT,
+  items text[],
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
+CREATE TABLE books (
+    id SERIAL PRIMARY KEY,
+    item_id INT,
+    title VARCHAR(255),
+    author_id INT,
+    label_id Int,
+    cover_state VARCHAR(255),
+    publisher VARCHAR(255),
+    FOREIGN KEY (item_id) REFERENCES items(id),
+    FOREIGN KEY (label_id) REFERENCES labels(id),
+    FOREIGN KEY (author_id) REFERENCES authors(id)
+);
 CREATE TABLE games (
     id INT PRIMARY KEY,
     item_id INT,
@@ -38,7 +47,7 @@ CREATE TABLE games (
     published_date DATE,
     author_id INT,
     FOREIGN KEY (item_id) REFERENCES items(id),
-    FOREIGN KEY (author_id) REFERENCES game_authors(id)
+    FOREIGN KEY (author_id) REFERENCES authors(id)
 );
 
 CREATE TABLE music_albums (
@@ -51,3 +60,7 @@ CREATE TABLE music_albums (
     FOREIGN KEY (item_id) REFERENCES items(id),
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
+
+
+CREATE INDEX genres ON music_albums (genre_id);
+CREATE INDEX label_idx ON books (label_id);
