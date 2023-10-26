@@ -16,7 +16,8 @@ class Main
     8 => :add_game,
     9 => :add_game_author,
     10 => :display_labels,
-    11 => :exit
+    11 => :display_game_authors,
+    12 => :exit
   }.freeze
 
   def initialize(app)
@@ -36,7 +37,8 @@ class Main
       8 - Add game
       9 - Add game author
       10 - Display all labels
-      11 - Thats all for now
+      11 - Display game authors
+      12 - Thats all for now
     OPTIONS
   end
 
