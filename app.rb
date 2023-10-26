@@ -65,6 +65,60 @@ class App
   #   end
   #   puts 'label displayed'
   # end
+    
+  # add game
+
+  def add_game
+    puts 'Enter published date'
+    published_date = gets.chomp
+    puts 'Is it a multi player game (yes or no)'
+    multiplayer = gets.chomp
+    puts 'Enter last played date'
+    last_played_at = gets.chomp
+    @games << Game.new(multiplayer, last_played_at, published_date).to_hash
+    hashed = @games.map(&:to_hash)
+    json = JSON.generate(hashed)
+    File.write('game.json', json)
+    puts 'game added'
+  end
+
+
+
+     # display game
+
+  def add_game_author
+    puts 'First name'
+    first_name = gets.chomp
+    puts 'Last name'
+    last_name = gets.chomp
+    @game_author << { 'first_name' => first_name, 'last_name' => last_name }
+    save_to_json('add_game_author.json', @game_author)
+    puts 'game author added'
+  end
+
+   # display game
+
+   def display_games
+    @games = JSON.parse(File.read('game.json'))
+    puts 'No games' if @games.empty?
+    @games.each do |game|
+      puts "published date: #{game['published_date']}", "multy player: #{game['multiplayer']}"
+    end
+    puts 'games displayed'
+  end
+
+
+  # display game authors
+
+  def display_game_authors
+    @game_author = JSON.parse(File.read('add_game_author.json'))
+    puts 'No game authors' if @game_author.empty?
+    @game_author.each do |game_author|
+      puts "first name: #{game_author['first_name']}", "last name: #{game_author['last_name']}"
+    end
+    puts 'game authors displayed'
+  end
+
   def add_book
     published_date = get_user_input('Enter published date')
     title = get_user_input('Enter title')
@@ -94,4 +148,13 @@ class App
   def display_labels
     display_collection('label.json', 'No labels', ['title'])
   end
+
+      # ...
+
+      private
+
+      def save_to_json(file_name, collection)
+        json = JSON.pretty_generate(collection)
+        File.write(file_name, json)
+      end
 end
