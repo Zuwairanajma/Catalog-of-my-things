@@ -5,6 +5,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+  - [🛠 Video Presentation](#video-presentation)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -29,7 +30,10 @@
 
 **[Catalog-of-my-things]** Is a console app that helps keep records of different types of things: **books**, **music albums**, and **games**.The data is stored in JSON files. A database with tables structure analogical to the program's class structure is prepared.
 
-## Video Presentation []
+## Video Presentation <a name="livelink"></a>
+- [Click here to watch the video](https://drive.google.com/file/d/1FP7LxXX5rfe4EcCABbKCBcGg4zroWQ2M/view?usp=sharing)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🛠 Built With <a name="built-with"></a>
 
