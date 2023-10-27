@@ -42,8 +42,14 @@
 <details>
   <summary>Ruby</summary>
   <ul>
-    <li><a>https://www.ruby-lang.org/en/</a></li>
+<li>
+
+<a name="livelink"></a>
+  - [Click here to read more about ruby](https://www.ruby-lang.org/en/)
+
+   </li>
   </ul>
+  
 </details>
 
 <!-- Features -->
