@@ -31,7 +31,7 @@
 **[Catalog-of-my-things]** Is a console app that helps keep records of different types of things: **books**, **music albums**, and **games**.The data is stored in JSON files. A database with tables structure analogical to the program's class structure is prepared.
 
 ## Video Presentation <a name="livelink"></a>
-- [Click here to watch the video](https://drive.google.com/file/d/1FP7LxXX5rfe4EcCABbKCBcGg4zroWQ2M/view?usp=sharing)
+- [Click here to watch the video](https://drive.google.com/file/d/1zSaE7DSHu502l3sZpT-sFj0UtLbKRn5y/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
